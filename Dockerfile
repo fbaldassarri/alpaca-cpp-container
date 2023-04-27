@@ -70,4 +70,4 @@ ENV HOME /home/alpaca-cpp-user
 WORKDIR ${HOME}/alpaca.cpp
 USER alpaca-cpp-user
 # CMD ["/bin/bash"]
-CMD ["~/alpaca.cpp/chat"]
+CMD ["/home/alpaca-cpp-user/alpaca.cpp/chat"]
