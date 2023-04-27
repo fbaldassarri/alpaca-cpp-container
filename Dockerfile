@@ -58,9 +58,8 @@ RUN su - alpaca-cpp-user -c "git clone https://github.com/antimatter15/alpaca.cp
 #                             && python3 -m pip install -r requirements.txt " 
 
 # Download model
-# RUN su - alpaca-cpp-user -c "https://github.com/facebookresearch/llama.git ~/llama \
-#                            && cd ~/llama\
-#                            && ./download.sh "
+RUN su - alpaca-cpp-user -c "cd ~/alpaca.cpp \ 
+                            && wget https://huggingface.co/Sosaka/Alpaca-native-4bit-ggml/blob/main/ggml-alpaca-7b-q4.bin "
 
 # COPY entrypoint.sh /usr/bin/entrypoint
 # RUN chmod 755 /usr/bin/entrypoint
@@ -70,4 +69,4 @@ RUN su - alpaca-cpp-user -c "git clone https://github.com/antimatter15/alpaca.cp
 ENV HOME /home/alpaca-cpp-user
 WORKDIR ${HOME}/alpaca.cpp
 USER alpaca-cpp-user
-CMD ["/bin/bash"]
+CMD ["/bin/bash ~/alpaca.cpp/chat "]
