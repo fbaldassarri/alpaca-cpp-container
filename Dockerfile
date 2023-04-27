@@ -69,5 +69,5 @@ RUN su - alpaca-cpp-user -c "cd ~/alpaca.cpp \
 ENV HOME /home/alpaca-cpp-user
 WORKDIR ${HOME}/alpaca.cpp
 USER alpaca-cpp-user
-# CMD ["/bin/bash"]
-CMD ["/home/alpaca-cpp-user/alpaca.cpp/chat"]
+CMD ["/bin/bash"]
+
