@@ -30,7 +30,7 @@ RUN service ssh start
 # Create user
 
 RUN groupadd --gid 1020 alpaca-cpp-group
-RUN useradd -rm -d /home/alpaca-cpp-user -s /bin/bash -G users,sudo,alpaca-cpp-group -u 1000 alpaca-cpp-user
+RUN useradd -rm -d /home/alpaca-cpp-home -s /bin/bash -G users,sudo,alpaca-cpp-group -u 1000 alpaca-cpp-user
 
 # Update user password
 RUN echo 'alpaca-cpp-user:admin' | chpasswd
@@ -67,7 +67,7 @@ RUN su - alpaca-cpp-user -c "cd ~/alpaca.cpp \
 # ENTRYPOINT ["/usr/bin/entrypoint"]
 
 # Preparing for login
-ENV HOME /home/alpaca-cpp-user
+ENV HOME /home/alpaca-cpp-home
 WORKDIR ${HOME}/alpaca.cpp
 USER alpaca-cpp-user
 CMD ["/bin/bash"]
