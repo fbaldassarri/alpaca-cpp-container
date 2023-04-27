@@ -53,9 +53,9 @@ RUN su - alpaca-cpp-user -c "git clone https://github.com/antimatter15/alpaca.cp
                             && make chat "
 
 # Install Requirements for python virtualenv
-RUN su - alpaca-cpp-user -c "cd ~/alpaca.cpp \
-                            && conda activate alpacacpp \
-                            && python3 -m pip install -r requirements.txt " 
+# RUN su - alpaca-cpp-user -c "cd ~/alpaca.cpp \
+#                             && conda activate alpacacpp \
+#                             && python3 -m pip install -r requirements.txt " 
 
 # Download model
 # RUN su - alpaca-cpp-user -c "https://github.com/facebookresearch/llama.git ~/llama \
