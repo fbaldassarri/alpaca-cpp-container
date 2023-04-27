@@ -50,7 +50,7 @@ RUN su - alpaca-cpp-user -c "conda init bash"
 # Download latest github/alpaca-cpp in alpaca.cpp directory and compile it
 RUN su - alpaca-cpp-user -c "git clone https://github.com/antimatter15/alpaca.cpp ~/alpaca.cpp \
                             && cd ~/alpaca.cpp \
-                            && make "
+                            && make chat "
 
 # Install Requirements for python virtualenv
 RUN su - alpaca-cpp-user -c "cd ~/alpaca.cpp \
