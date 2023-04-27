@@ -50,6 +50,7 @@ RUN su - alpaca-cpp-user -c "conda init bash"
 # Download latest github/alpaca-cpp in alpaca.cpp directory and compile it
 RUN su - alpaca-cpp-user -c "git clone https://github.com/antimatter15/alpaca.cpp ~/alpaca.cpp \
                             && cd ~/alpaca.cpp \
+                            && make  \
                             && make chat "
 
 # Install Requirements for python virtualenv
@@ -59,7 +60,7 @@ RUN su - alpaca-cpp-user -c "git clone https://github.com/antimatter15/alpaca.cp
 
 # Download model
 RUN su - alpaca-cpp-user -c "cd ~/alpaca.cpp \ 
-                            && wget https://huggingface.co/Sosaka/Alpaca-native-4bit-ggml/blob/main/ggml-alpaca-7b-q4.bin "
+                            && wget https://huggingface.co/Sosaka/Alpaca-native-4bit-ggml/resolve/main/ggml-alpaca-7b-q4.bin "
 
 # COPY entrypoint.sh /usr/bin/entrypoint
 # RUN chmod 755 /usr/bin/entrypoint
