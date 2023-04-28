@@ -53,26 +53,17 @@ RUN su - alpaca-cpp-user -c "git clone https://github.com/antimatter15/alpaca.cp
                             && make  \
                             && make chat "
 
-# Install Requirements for python virtualenv
-# RUN su - alpaca-cpp-user -c "cd ~/alpaca.cpp \
-#                             && conda activate alpacacpp \
-#                             && python3 -m pip install -r requirements.txt " 
-
-# Download model
+# Download default testing model
 RUN su - alpaca-cpp-user -c "cd ~/alpaca.cpp \ 
                             && wget https://huggingface.co/Sosaka/Alpaca-native-4bit-ggml/resolve/main/ggml-alpaca-7b-q4.bin "
 
-# COPY entrypoint.sh /usr/bin/entrypoint
-# RUN chmod 755 /usr/bin/entrypoint
-# ENTRYPOINT ["/usr/bin/entrypoint"]
-
-# Edit ~/profile
-# RUN su - alpaca-cpp-user -c "echo -e ". "$HOME/alpaca.cpp/chat"\n" >> ~/profile"
-# append . "$HOME/alpaca.cpp/chat"
+# Download experimental model Pi3141/gpt4-x-alpaca-native-13B-ggml/ggml-model-q8_0.bin
+RUN su - alpaca-cpp-user -c "cd ~/alpaca.cpp \ 
+                            && wget https://huggingface.co/Pi3141/gpt4-x-alpaca-native-13B-ggml/resolve/main/ggml-model-q8_0.bin "
 
 # Preparing for login
 ENV HOME /home/alpaca-cpp-home
 WORKDIR ${HOME}/alpaca.cpp
 USER alpaca-cpp-user
-CMD ["/bin/bash", "-c", "~/alpaca.cpp/chat"]
-
+CMD ["/bin/bash"] 
+# CMD ["/bin/bash", "-c", "~/alpaca.cpp/chat"] 
