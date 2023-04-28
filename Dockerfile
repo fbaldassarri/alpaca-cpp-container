@@ -47,6 +47,9 @@ RUN chown -R alpaca-cpp-user:users /opt/conda
 # conda init bash for $user
 RUN su - alpaca-cpp-user -c "conda init bash"
 
+# conda activate alpacacpp env
+RUN su - alpaca-cpp-user -c "echo "conda activate alpacacpp" >> ~/.bashrc "
+
 # Download latest github/alpaca-cpp in alpaca.cpp directory and compile it
 RUN su - alpaca-cpp-user -c "git clone https://github.com/antimatter15/alpaca.cpp ~/alpaca.cpp \
                             && cd ~/alpaca.cpp \
@@ -57,13 +60,14 @@ RUN su - alpaca-cpp-user -c "git clone https://github.com/antimatter15/alpaca.cp
 RUN su - alpaca-cpp-user -c "cd ~/alpaca.cpp \ 
                             && wget https://huggingface.co/Sosaka/Alpaca-native-4bit-ggml/resolve/main/ggml-alpaca-7b-q4.bin "
 
-# Download experimental model Pi3141/gpt4-x-alpaca-native-13B-ggml/ggml-model-q8_0.bin
+# Download additional experimental model 
 RUN su - alpaca-cpp-user -c "cd ~/alpaca.cpp \ 
+                            # Pi3141/gpt4-x-alpaca-native-13B-ggml/ggml-model-q8_0.bin
                             && wget https://huggingface.co/Pi3141/gpt4-x-alpaca-native-13B-ggml/resolve/main/ggml-model-q8_0.bin "
 
 # Preparing for login
 ENV HOME /home/alpaca-cpp-home
 WORKDIR ${HOME}/alpaca.cpp
 USER alpaca-cpp-user
-CMD ["/bin/bash"] 
-# CMD ["/bin/bash", "-c", "~/alpaca.cpp/chat"] 
+# CMD ["/bin/bash"] 
+CMD ["/bin/bash", "-c", "~/alpaca.cpp/chat"] 
