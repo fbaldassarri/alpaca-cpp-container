@@ -32,7 +32,7 @@ chmod +x build start stop rm
 docker container attach alpaca-cpp-container
 ```
 
-## To connect remotly thorugh SSH
+## To connect remotly thorugh SSH (and/or to exchange files through SCP)
 
 ```bash
 ssh 
@@ -43,3 +43,9 @@ ssh
 ```bash
 ./stop
 ```
+
+### Todo
+
+* Correct conda init to use virtualenv instead of base 
+* Adjust openssh-server setup
+* Adding external volume to store data
