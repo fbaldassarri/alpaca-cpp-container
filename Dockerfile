@@ -66,9 +66,13 @@ RUN su - alpaca-cpp-user -c "cd ~/alpaca.cpp \
 # RUN chmod 755 /usr/bin/entrypoint
 # ENTRYPOINT ["/usr/bin/entrypoint"]
 
+# Edit ~/profile
+# RUN su - alpaca-cpp-user -c "echo -e ". "$HOME/alpaca.cpp/chat"\n" >> ~/profile"
+# append . "$HOME/alpaca.cpp/chat"
+
 # Preparing for login
 ENV HOME /home/alpaca-cpp-home
 WORKDIR ${HOME}/alpaca.cpp
 USER alpaca-cpp-user
-CMD ["/bin/bash"]
+CMD ["/bin/bash", "-c", "~/alpaca.cpp/chat"]
 
