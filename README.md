@@ -13,7 +13,7 @@ Please, install the NVIDIA Container Toolkit following [this guide](https://docs
 ## To build the container 
 
 ```bash
-chmod +x build start stop
+chmod +x build start stop rm
 ```
 
 ```bash

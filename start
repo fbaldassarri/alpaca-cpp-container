@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
 
-# docker run -dit --name alpaca-cpp-container -p 221:22 continuumio/miniconda3:latest
-
 docker run -dit --name alpaca-cpp-container -p 221:22 --runtime=nvidia --gpus all --shm-size="12gb" --restart unless-stopped alpaca-cpp-container:latest
