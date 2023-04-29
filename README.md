@@ -46,6 +46,5 @@ ssh
 
 ### Todo
 
-* Correct conda init to use virtualenv instead of base 
 * Adjust openssh-server setup
 * Adding external volume to store data
