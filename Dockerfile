@@ -48,7 +48,7 @@ RUN chown -R alpaca-cpp-user:users /opt/conda
 RUN su - alpaca-cpp-user -c "conda init bash"
 
 # conda activate alpacacpp env
-RUN su - alpaca-cpp-user -c "echo "conda activate alpacacpp" >> ~/.bashrc "
+RUN su - alpaca-cpp-user -c "echo \"conda activate alpacacpp\" >> ~/.bashrc "
 
 # Download latest github/alpaca-cpp in alpaca.cpp directory and compile it
 RUN su - alpaca-cpp-user -c "git clone https://github.com/antimatter15/alpaca.cpp ~/alpaca.cpp \
